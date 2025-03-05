@@ -59,7 +59,11 @@ class Student(Teacher):
 
         return enrolled_courses
 
-
+    @staticmethod
+    def verify_email(email):
+        if email in Student.emails:
+            raise EmailAlreadyExistException("Email already registered")
+        Student.emails.add(email)
 
     @staticmethod
     def verify_name(name):
