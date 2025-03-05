@@ -1,10 +1,12 @@
-from exceptions.exception import NotFoundException, EmailAlreadyExistException, VerificationFailedException
+from exceptions.exception import NotFoundException, EmailAlreadyExistException, VerificationFailedException, \
+    NameAlreadyExistException
 from src.course import Course
 from src.teacher import Teacher
 
 class Student(Teacher):
 
     emails = set()
+    names = set()
 
     def __init__(self, name, email, password):
         super().__init__(name, email, password)
@@ -64,7 +66,10 @@ class Student(Teacher):
         Student.emails.add(email)
 
     @staticmethod
-    def verify_name(name ):
+    def verify_name(name):
+        if name in Student.names:
+            raise NameAlreadyExistException("Name already registered")
+        Student.names.add(name)
 
 
 
