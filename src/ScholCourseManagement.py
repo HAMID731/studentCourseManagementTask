@@ -3,15 +3,15 @@ def main():
         while True:
             choice = input(prompt)
             return choice
-    def first_case():
-        while True:
-            print("""\nWelcome to the STUDENT COURSE MANAGEMENT!
-            1. Register
-            2. Login
-            3. Exit
-            """)
-            choice = get_choice("Enter your choice: ")
-            match choice:
+
+    while True:
+        print("""\nWelcome to the STUDENT COURSE MANAGEMENT!
+        1. Register
+        2. Login
+        3. Exit
+        """)
+        choice = get_choice("Enter your choice: ")
+        match choice:
                 case "1":
                     print("""
             1. Are You Registering as student
@@ -25,7 +25,7 @@ def main():
                             email = input("Enter your email: ")
                             set_password = input("Set Strong password: ")
 
-
+                            reg_s_choice = get_choice("Enter your choice: ")
                             match reg_s_choice:
                                 case "1":
                                     print("notification viewed")
