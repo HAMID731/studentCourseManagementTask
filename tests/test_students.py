@@ -26,7 +26,6 @@ class TestStudents(unittest.TestCase):
             self.students_manager.add_student(Student("John Doe", "another.john@example.com", "password789"))
 
     def test_remove_student(self):
-        """Test removing a student."""
         self.students_manager.add_student(self.student1)
         self.students_manager.remove_student("john.doe@example.com")
         self.assertEqual(len(self.students_manager.get_all_students()), 0)
